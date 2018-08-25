@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Word Guess Game</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/reset.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
+    
+</head>
+<body>
+
+    <header>
+            <img src="assets/images/titleimage.jpg" alt="Geo Guesser Image">
+    </header>
+
+    <section>
+        <!-- two columns
+            left column changing picture based on answer (array of objects in )
+            
+            right column "Press any key to get started" "wins" "curret word _____ (checklength)" "number of guesses remaining (negative for loop?)" "letters guessed (push to array"      -->
+
+            <div id="game">
+                    <p>Press any key to get started!</p>
+                    <p>Guess: <strong></strong></p>
+                    <p>Wins:<span id ="wins"></span></p>
+                    <p>Losses:<span id ="losses"></span></p>
+                    <p >Current Word: <span id="guessingWordDashes"></span> </p> 
+                    <p>Number of Guesses Remaining:<span id="guessesRemaining"></span></p> 
+                    <p>Letters Guessed:<span id="guessedList"></span> </p> 
+                  </div>
+                
+    </section> 
+</body>
+
+</html>
+
+<script src="assets/javascript/game.js"></script>

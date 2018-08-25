@@ -1,0 +1,33 @@
+/* Amber Struckman
+JS HW */
+
+body {
+    width: 100%;
+    max-width: 960px;
+    /* background: blue; */
+    font-family: 'Arial', 'Helvetica Neue', Helvetica, sans-serif;
+    margin: auto;
+}
+
+header {
+    position: absolute;
+    display:block;
+    width: 100%;
+    background: black;
+    margin: 0 auto;
+}
+
+
+section {
+    background: #ffffff;
+    border: 2px solid #dddddd;
+    margin: auto; /* around box model clockwise*/
+    min-height: 300px;
+    padding:10px;
+    overflow: hidden;
+    position: absolute;
+}
+
+span {
+    margin-right: 2px;
+}
