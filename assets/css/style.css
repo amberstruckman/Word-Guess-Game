@@ -10,7 +10,7 @@ body {
 }
 
 header {
-    position: absolute;
+    
     display:block;
     width: 100%;
     background: black;
@@ -25,9 +25,14 @@ section {
     min-height: 300px;
     padding:10px;
     overflow: hidden;
-    position: absolute;
+    
 }
 
 span {
     margin-right: 2px;
+}
+
+header img {
+    display: block;
+    margin: 0 auto;
 }

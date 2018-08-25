@@ -15,12 +15,12 @@
     //11. press any key to start
 
     var countryNames = [
-        "france",
-        "united States",
-        "canada",
-        "mexico",
-        "india",
-        "germany"
+        "FRANCE",
+        "USA",
+        "CANADA",
+        "MEXICO",
+        "INDIA",
+        "GERMANY"
     ];
     var guessingWordDashes = [];
 
@@ -33,13 +33,20 @@ var guessesRemainingNode = document.querySelector("#guessesRemaining");
 var lossesNode = document.querySelector("#losses");
 var winsNode = document.querySelector("#wins");
 var guessedListNode = document.querySelector("#guessedList"); //selected an element in the DOM by using its ID
-
+var beforeFirstGame = true;
  // This function is run whenever the user presses a key.
  document.onkeyup = function(event) {
-
+     
+    if (beforeFirstGame) {
+        beforeFirstGame = false;
+        reset();
+    }
     // Determines which key was pressed.
-    var letterGuessed = event.key;
-    
+    var letterGuessed = event.key.toUpperCase();
+    if (!letterGuessed.match(/[A-Z]/)){
+        alert("This is not a letter");
+        return;
+    }
    
 
 //takes the letter guessed and checks it against all letter in the the userGuesses array. alerts and NOT adds letter if already in the array
@@ -55,9 +62,7 @@ var guessedListNode = document.querySelector("#guessedList"); //selected an elem
     userGuesses.push(letterGuessed);
     
 
-    //takes the letter guessed and writes it into the guessnode in the  DOM
-    var guessNode = document.querySelector('strong'); //selects the first 'strong' tag
-    guessNode.textContent = letterGuessed;// shows the letter guessed
+   
    
 
    //creating a span element and assigning it a varible name
@@ -82,6 +87,11 @@ var guessedListNode = document.querySelector("#guessedList"); //selected an elem
             }
     }
     //where to know if we're done or not. 
+    if (incorrectGuess == true){
+        numberGuesses -= 1; //reduces the numberGuesses by one
+    }
+    displayGuessedCountry();    
+
     if (dashesRemain == false) {
         wins += 1;
         winsNode.textContent= wins;
@@ -89,22 +99,17 @@ var guessedListNode = document.querySelector("#guessedList"); //selected an elem
         reset();
     }
 
-    if (incorrectGuess == true){
-        numberGuesses -= 1; //reduces the numberGuesses by one
-    }
-
     if (numberGuesses == 0){
         losses += 1; //increases the losses
         lossesNode.textContent= losses;
+        alert("Sorry, you lost.");
         reset();
     }
-    displayGuessedCountry();
-
  }
 
  //random country
-var countryBeingGuessed = countryNames[Math.floor(Math.random() * countryNames.length)];
-alert(countryBeingGuessed);
+var countryBeingGuessed; 
+
 
 //creates the dashes
 
@@ -128,8 +133,8 @@ function displayGuessedCountry(){
     
 }
 
-countryDashes();
-displayGuessedCountry();
+
+
 
 function reset (){  //gets game ready for a new game // not working 
     guessingWordDashes = [];
@@ -138,5 +143,5 @@ function reset (){  //gets game ready for a new game // not working
     userGuesses = [];
     numberGuesses = 10;
     guessedListNode.innerHTML = "";
-
+    displayGuessedCountry();
 }
